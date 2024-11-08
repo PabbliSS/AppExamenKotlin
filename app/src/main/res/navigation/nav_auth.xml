@@ -18,5 +18,23 @@
         android:id="@+id/loginFragment"
         android:name="org.eurekamps.appexamenkotlin.fragmentsMain.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registryFragment"
+            app:destination="@id/registryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registryFragment"
+        android:name="org.eurekamps.appexamenkotlin.fragmentsMain.RegistryFragment"
+        android:label="fragment_registry"
+        tools:layout="@layout/fragment_registry" >
+        <action
+            android:id="@+id/action_registryFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskCreatorFragment"
+        android:name="org.eurekamps.appexamenkotlin.fragmentsMain.TaskCreatorFragment"
+        android:label="fragment_task_creator"
+        tools:layout="@layout/fragment_task_creator" />
 </navigation>

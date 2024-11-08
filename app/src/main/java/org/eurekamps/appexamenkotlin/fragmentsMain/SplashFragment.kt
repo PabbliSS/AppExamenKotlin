@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import org.eurekamps.appexamenkotlin.R
 
 
@@ -39,6 +41,12 @@ class SplashFragment : Fragment() {
         progressBar = view.findViewById(R.id.progressBar)
         tvLoadingSplash = view.findViewById(R.id.tvLoadingSplash)
 
+
+        var imageView: ImageView = view.findViewById(R.id.ivImgSplash)
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.pinguino_office)
+            .into(imageView)
 
 
         Handler(Looper.getMainLooper()).postDelayed({

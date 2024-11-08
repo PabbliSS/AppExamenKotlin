@@ -13,8 +13,8 @@
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
-            android:layout_width="76dp"
-            android:layout_height="60dp"
+            android:layout_width="98dp"
+            android:layout_height="78dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -24,8 +24,8 @@
 
         <TextView
             android:id="@+id/tvLoadingSplash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="125dp"
+            android:layout_height="35dp"
             android:layout_marginBottom="72dp"
             android:text="Cargando..."
             android:textSize="24sp"
@@ -34,6 +34,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            app:layout_constraintVertical_bias="0.723" />
+
+        <ImageView
+            android:id="@+id/ivImgSplash"
+            android:layout_width="277dp"
+            android:layout_height="245dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13"
+            tools:src="@drawable/pinguino_office" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
