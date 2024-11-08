@@ -80,6 +80,7 @@ class RegistryFragment : Fragment() {
                         Log.d("REGISTRY", "Se ha pulsado el botón Registrar")
                         registryViewModel.registroUsuario(email, password)
 
+                        Toast.makeText(requireContext(), "Se ha completado el registro exitosamente", Toast.LENGTH_SHORT).show()
                         // Navegar a la siguiente pantalla solo si la validación es exitosa
                         findNavController().navigate(R.id.action_registryFragment_to_taskCreatorFragment)
 
