@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_registryFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registryFragment_to_taskCreatorFragment"
+            app:destination="@id/taskCreatorFragment" />
     </fragment>
     <fragment
         android:id="@+id/taskCreatorFragment"
