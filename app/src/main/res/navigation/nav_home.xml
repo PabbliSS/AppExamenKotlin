@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_home">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/listTasksFragment">
 
+    <fragment
+        android:id="@+id/listTasksFragment"
+        android:name="org.eurekamps.appexamenkotlin.fragmentsHome.ListTasksFragment"
+        android:label="fragment_list_tasks"
+        tools:layout="@layout/fragment_list_tasks" >
+        <action
+            android:id="@+id/action_listTasksFragment_to_taskCreatorFragment2"
+            app:destination="@id/taskCreatorFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskCreatorFragment2"
+        android:name="org.eurekamps.appexamenkotlin.fragmentsHome.TaskCreatorFragment"
+        android:label="fragment_task_creator"
+        tools:layout="@layout/fragment_task_creator" >
+        <action
+            android:id="@+id/action_taskCreatorFragment2_to_listTasksFragment"
+            app:destination="@id/listTasksFragment" />
+    </fragment>
 </navigation>
