@@ -11,34 +11,47 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="233dp"
-            android:layout_height="55dp"
+            android:id="@+id/edTxtTituloTarea"
+            android:layout_width="261dp"
+            android:layout_height="66dp"
             android:ems="10"
             android:hint="Title"
             android:inputType="text"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="139dp" />
+            app:layout_constraintBottom_toTopOf="@+id/edTxtDescripcionTarea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.44"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.695" />
 
         <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="231dp"
-            android:layout_height="46dp"
+            android:id="@+id/edTxtDescripcionTarea"
+            android:layout_width="257dp"
+            android:layout_height="57dp"
             android:ems="10"
             android:hint="Description"
             android:inputType="text"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="228dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.418" />
 
         <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="233dp"
-            android:layout_height="48dp"
+            android:id="@+id/edTxtFechaLimiteTarea"
+            android:layout_width="254dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="48dp"
             android:ems="10"
             android:hint="Limit Date"
             android:inputType="date"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="306dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edTxtDescripcionTarea"
+            app:layout_constraintVertical_bias="0.045" />
 
         <Button
             android:id="@+id/btnVolverTask"
@@ -59,5 +72,17 @@
             android:text="Guardar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="253dp"
+            android:layout_height="66dp"
+            android:text="CREADOR DE TAREAS"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/edTxtTituloTarea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
