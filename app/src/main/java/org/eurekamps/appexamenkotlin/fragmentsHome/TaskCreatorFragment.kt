@@ -1,6 +1,7 @@
 package org.eurekamps.appexamenkotlin.fragmentsHome
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,21 +9,21 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import org.eurekamps.appexamenkotlin.R
-import org.eurekamps.appexamenkotlin.fbClass.FbTask
 import org.eurekamps.appexamenkotlin.viewmodelsMain.TaskCreatorViewModel
 
 class TaskCreatorFragment : Fragment() {
 
+    private lateinit var edtTitulo: EditText
+    private lateinit var edtDescripcion: EditText
+    private lateinit var edtFechaLimite: EditText
+    private lateinit var btnCrearTarea: Button
 
-    lateinit var taskCreatorViewModel: TaskCreatorViewModel  // Usamos TaskCreatorViewModel
-
-    lateinit var edtTitulo: EditText
-    lateinit var edtDescripcion: EditText
-    lateinit var edtFechaLimite: EditText
-    lateinit var btnGuardarTarea: Button
+    // Instancia del TaskViewModel
+    private val taskViewModel: TaskCreatorViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,35 +35,38 @@ class TaskCreatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inicializar los campos de entrada y el botón
         edtTitulo = view.findViewById(R.id.edTxtTituloTarea)
         edtDescripcion = view.findViewById(R.id.edTxtDescripcionTarea)
         edtFechaLimite = view.findViewById(R.id.edTxtFechaLimiteTarea)
-        btnGuardarTarea = view.findViewById(R.id.btnGuardarTask)
+        btnCrearTarea = view.findViewById(R.id.btnCrearTarea)
 
-        // Inicializar el ViewModel
-        taskCreatorViewModel = ViewModelProvider(this).get(TaskCreatorViewModel::class.java)
-
-        // Configurar el botón para crear la tarea
-        btnGuardarTarea.setOnClickListener {
+        // Configurar el botón para guardar la tarea
+        btnCrearTarea.setOnClickListener {
             val titulo = edtTitulo.text.toString()
             val descripcion = edtDescripcion.text.toString()
             val fechaLimite = edtFechaLimite.text.toString()
 
-            // Validar que los campos no estén vacíos
             if (titulo.isNotEmpty() && descripcion.isNotEmpty() && fechaLimite.isNotEmpty()) {
-                // Crear la tarea
-                val newTask = FbTask(titulo, descripcion, fechaLimite)
-                // Subir la tarea a Firebase usando el ViewModel
-                taskCreatorViewModel.createTask(newTask)
-                // Navegar de vuelta al fragmento de lista de tareas
-                findNavController().navigate(R.id.action_taskCreatorFragment2_to_listTasksFragment)
-
+                // Llamar al ViewModel para guardar la tarea
+                taskViewModel.saveTask(titulo, descripcion, fechaLimite)
             } else {
-
-                Toast.makeText(requireContext(), "No se ha podido guardar la tarea", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(requireContext(), "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Observar el éxito al guardar la tarea
+        taskViewModel.taskSaveSuccess.observe(viewLifecycleOwner, Observer { success ->
+            if (success) {
+                Toast.makeText(requireContext(), "Tarea guardada exitosamente.", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_taskCreatorFragment2_to_listTasksFragment) // Navegar a ListTasksFragment
+            }
+        })
+
+        // Observar el error al guardar la tarea
+        taskViewModel.taskSaveError.observe(viewLifecycleOwner, Observer { errorMessage ->
+            errorMessage?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
