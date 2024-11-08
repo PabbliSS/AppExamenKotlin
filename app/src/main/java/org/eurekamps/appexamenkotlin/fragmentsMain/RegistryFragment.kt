@@ -5,10 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import org.eurekamps.appexamenkotlin.R
 
 
 class RegistryFragment : Fragment() {
+
+
+    lateinit var btnVolver:Button
+    lateinit var btnRegistrar:Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +32,9 @@ class RegistryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btnVolver
+
     }
 
 }

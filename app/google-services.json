@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853836429607",
+    "project_id": "appexamenkotlin",
+    "storage_bucket": "appexamenkotlin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853836429607:android:f113ddcacd65a7d0591102",
+        "android_client_info": {
+          "package_name": "org.eurekamps.appexamenkotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbbguQ5ykeRc29v-NMOHWesW8ot6X-_84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
