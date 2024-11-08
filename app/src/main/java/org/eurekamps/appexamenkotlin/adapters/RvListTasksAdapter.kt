@@ -10,8 +10,8 @@ import org.eurekamps.appexamenkotlin.fbClass.FbTask
 
 
 class RvListTasksAdapter(
-    private val tasksList: List<FbTask>,
-    private val onClick: (FbTask) -> Unit // Añadimos el parámetro de clic
+    private var tasksList: List<FbTask>,
+    private val onClick: (FbTask) -> Unit
 ) : RecyclerView.Adapter<RvListTasksAdapter.TaskViewHolder>() {
 
     // ViewHolder class binds views to task data
@@ -49,5 +49,11 @@ class RvListTasksAdapter(
     // Return the size of the list
     override fun getItemCount(): Int {
         return tasksList.size
+    }
+
+    // Actualizar la lista de tareas
+    fun updateTasks(newTasks: List<FbTask>) {
+        tasksList = newTasks
+        notifyDataSetChanged()
     }
 }
