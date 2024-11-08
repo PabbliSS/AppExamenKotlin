@@ -57,6 +57,7 @@ class TaskCreatorFragment : Fragment() {
                 taskCreatorViewModel.createTask(newTask)
                 // Navegar de vuelta al fragmento de lista de tareas
                 findNavController().navigate(R.id.action_taskCreatorFragment2_to_listTasksFragment)
+
             } else {
 
                 Toast.makeText(requireContext(), "No se ha podido guardar la tarea", Toast.LENGTH_SHORT).show()

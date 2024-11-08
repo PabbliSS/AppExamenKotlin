@@ -83,6 +83,8 @@ class RegistryFragment : Fragment() {
                         Toast.makeText(requireContext(), "Se ha completado el registro exitosamente", Toast.LENGTH_SHORT).show()
                         // Navegar a la siguiente pantalla solo si la validación es exitosa
 
+                        findNavController().navigate(R.id.action_registryFragment_to_loginFragment)
+
                     } else {
 
                         Toast.makeText(requireContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
