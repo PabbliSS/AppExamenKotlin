@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskCreatorFragment"
-        android:name="org.eurekamps.appexamenkotlin.fragmentsMain.TaskCreatorFragment"
+        android:name="org.eurekamps.appexamenkotlin.fragmentsHome.TaskCreatorFragment"
         android:label="fragment_task_creator"
         tools:layout="@layout/fragment_task_creator" />
 </navigation>

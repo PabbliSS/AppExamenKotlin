@@ -1,4 +1,4 @@
-package org.eurekamps.appexamenkotlin.fragmentsMain
+package org.eurekamps.appexamenkotlin.fragmentsHome
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
