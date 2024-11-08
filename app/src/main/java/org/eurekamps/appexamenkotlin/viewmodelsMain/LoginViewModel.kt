@@ -28,7 +28,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 if (task.isSuccessful) {
                     Log.d("LoginViewModel", "Inicio de sesión exitoso")
                     _loginSuccess.value = true
-                    _loginError.value = null // Limpiamos el error si fue exitoso
+                    _loginError.value = null
+                // Limpiamos el error si fue exitoso
                 } else {
                     Log.d("LoginViewModel", "Inicio de sesión fallido")
                     _loginSuccess.value = false
