@@ -27,12 +27,18 @@ class LoginFragment : Fragment() {
     // Instancia del LoginViewModel
     private val loginViewModel: LoginViewModel by viewModels()
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,6 +67,8 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registryFragment)
         }
 
+
+
         // Observar el éxito del inicio de sesión
         loginViewModel.loginSuccess.observe(viewLifecycleOwner, Observer { success ->
             if (success) {
@@ -70,6 +78,9 @@ class LoginFragment : Fragment() {
                 requireActivity().finish()
             }
         })
+
+
+
 
         // Observar el mensaje de error del inicio de sesión
         loginViewModel.loginError.observe(viewLifecycleOwner, Observer { errorMessage ->

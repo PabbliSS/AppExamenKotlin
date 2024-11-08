@@ -23,9 +23,15 @@ class ListTasksFragment : Fragment() {
     private lateinit var taskViewModel: ListTasksViewModel
     private lateinit var adapter: RvListTasksAdapter
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +40,10 @@ class ListTasksFragment : Fragment() {
         // Inflar el layout para este fragmento
         return inflater.inflate(R.layout.fragment_list_tasks, container, false)
     }
+
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +61,7 @@ class ListTasksFragment : Fragment() {
         }
 
 
+
         rvListTareas.layoutManager = LinearLayoutManager(context)
         rvListTareas.adapter = adapter
 
@@ -59,6 +70,7 @@ class ListTasksFragment : Fragment() {
             // Actualizar la lista de tareas en el adaptador
             adapter.updateTasks(tasks)
         })
+
 
         // Configurar el clic en el botón "Crear Tarea"
         btnCrearTarea.setOnClickListener {

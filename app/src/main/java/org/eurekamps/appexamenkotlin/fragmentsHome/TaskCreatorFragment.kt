@@ -20,7 +20,7 @@ class TaskCreatorFragment : Fragment() {
     private lateinit var edtTitulo: EditText
     private lateinit var edtDescripcion: EditText
     private lateinit var edtFechaLimite: EditText
-    private lateinit var btnCrearTarea: Button
+    private lateinit var btnGuardarTarea: Button
 
     // Instancia del TaskViewModel
     private val taskViewModel: TaskCreatorViewModel by viewModels()
@@ -38,10 +38,11 @@ class TaskCreatorFragment : Fragment() {
         edtTitulo = view.findViewById(R.id.edTxtTituloTarea)
         edtDescripcion = view.findViewById(R.id.edTxtDescripcionTarea)
         edtFechaLimite = view.findViewById(R.id.edTxtFechaLimiteTarea)
-        btnCrearTarea = view.findViewById(R.id.btnCrearTarea)
+        btnGuardarTarea= view.findViewById(R.id.btnGuardarTask)
 
-        // Configurar el botón para guardar la tarea
-        btnCrearTarea.setOnClickListener {
+
+
+        btnGuardarTarea.setOnClickListener {
             val titulo = edtTitulo.text.toString()
             val descripcion = edtDescripcion.text.toString()
             val fechaLimite = edtFechaLimite.text.toString()
@@ -54,6 +55,8 @@ class TaskCreatorFragment : Fragment() {
             }
         }
 
+
+
         // Observar el éxito al guardar la tarea
         taskViewModel.taskSaveSuccess.observe(viewLifecycleOwner, Observer { success ->
             if (success) {
@@ -61,6 +64,9 @@ class TaskCreatorFragment : Fragment() {
                 findNavController().navigate(R.id.action_taskCreatorFragment2_to_listTasksFragment) // Navegar a ListTasksFragment
             }
         })
+
+
+
 
         // Observar el error al guardar la tarea
         taskViewModel.taskSaveError.observe(viewLifecycleOwner, Observer { errorMessage ->
